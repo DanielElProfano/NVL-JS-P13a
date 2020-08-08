@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript" >
+	
+/*Realiza una función, que será invocada desde el ámbito global, para calcular los n primeros números primos. Recordamos que un número primo, únicamente es divisible por sí mismo y por la unidad.
+Esa “n” que indica la cantidad de números a calcular es el parámetro de la función.*/
+
+var primo;
+var numero;
+var contador = 2;
+var array =[1];
+numero=prompt('Ingrese cuanto numeros primos deseas mostrar:','');
+
+primos(numero,contador);
+
+
+function primos(num, contador)
+{
+	var inicio=2;
+
+	primo = false;
+	
+	for (var i = 0; i<inicio;i++)
+	{ //i controle el numero de primos conseguidos
+			
+		var primo =	n_primos(inicio); //primo almacena un valor booleano que devuelve la funcion n_primos.
+			if (primo == true)
+			{
+				array.push(inicio); //introduzco el valor en el array para luego mostrarlo
+				if (contador < num)
+				{ //num tiene el valor de la cantidad de numeros primos a mostrar en panatalla.
+					contador++;
+				
+				}
+				else
+				{
+					break;
+				}
+				
+			}
+		inicio++;
+			
+
+	}
+			
+}
+alert("Estos son los "+array.length+" primeros número primos: "+array);	
+			
+
+function n_primos(inicio){
+
+	for (var i=inicio;i<=1000;i++)
+	{
+		
+		for (var x=2;x<i;x++)
+		{
+		
+			if (i % x == 0)
+			{
+		
+				return false; //no es primo
+			}
+			else{
+				if (x == i-1) //sólo es primo si además de que el módulo del numero es 0 ha recorrido todos los números hasta el suyo.
+				{
+				return true;
+				}
+			}
+		}
+	}
+
+}
+</script>
+</html>
